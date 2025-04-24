@@ -1,6 +1,6 @@
-# [Il Tuo Nome] - Portfolio da Sviluppatore 🚀
+# Michibit - Portfolio 🚀
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![LinkedIn](https://img.shields.io/badge/LinkedIn-[Il_Tuo_Nome]-blue?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/[il-tuo-profilo-linkedin]/) [![GitHub](https://img.shields.io/badge/GitHub-[Il_Tuo_Username]-lightgrey?style=flat&logo=github&logoColor=white)](https://github.com/[il-tuo-username]) Benvenuto nel repository del mio portfolio personale! Qui troverai il codice sorgente del sito che mostra le mie competenze, i miei progetti e la mia esperienza come sviluppatore.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![LinkedIn](https://img.shields.io/badge/LinkedIn-michele-menzione-534580268-blue?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/michele-menzione-534580268/) [![GitHub](https://img.shields.io/badge/GitHub-Michibit-lightgrey?style=flat&logo=github&logoColor=white)](https://github.com/Michibit) Benvenuto nel repository del mio portfolio personale! Qui troverai il codice sorgente del sito che mostra le mie competenze, i miei progetti e la mia esperienza come sviluppatore.
 
 <p align="center">
   <kbd>
@@ -11,7 +11,7 @@
 ## 🌐 Visita il Sito Live
 
 Puoi vedere il mio portfolio in azione qui:
-**[il-tuo-dominio.com](https://il-tuo-dominio.com)** ## 🛠️ Stack Tecnologico
+**[https://michibit.github.io/](https://michibit.github.io/)** ## 🛠️ Stack Tecnologico
 
 Questo sito è stato costruito utilizzando:
 
@@ -26,20 +26,3 @@ Questo sito è stato costruito utilizzando:
 * Esperienze Lavorative ed Educazione
 * Progetti Open Source (collegati a GitHub) e Progetti Personali
 * Contatti e Link Social
-
-## (Opzionale) Eseguire in Locale
-
-Se vuoi esplorare il codice o eseguirlo localmente:
-
-```bash
-# 1. Clona il repository
-git clone [https://github.com/](https://github.com/)[il-tuo-username]/[nome-repo].git
-cd [nome-repo]
-
-# 2. Installa le dipendenze
-npm install
-# o yarn install
-
-# 3. Avvia il server di sviluppo
-npm start
-# o yarn start
