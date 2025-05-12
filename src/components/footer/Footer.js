@@ -13,7 +13,8 @@ export default function Footer() {
           {emoji("Creato con ❤️ da Michele Menzione")}
         </p>
         <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
-          © {new Date().getFullYear()} - Tutti i diritti riservati Michele Menzione
+          © {new Date().getFullYear()} - Tutti i diritti riservati Michele
+          Menzione
         </p>
       </div>
     </Fade>

@@ -197,7 +197,8 @@ const bigProjects = {
     {
       image: require("./assets/images/saayaHealthLogo.webp"),
       projectName: "Infrastruttura Kubernetes Multi-Cloud",
-      projectDesc: "Implementazione di un cluster Kubernetes distribuito su più provider cloud per alta disponibilità e disaster recovery.",
+      projectDesc:
+        "Implementazione di un cluster Kubernetes distribuito su più provider cloud per alta disponibilità e disaster recovery.",
       footerLink: [
         {
           name: "Visita Repository",
@@ -208,7 +209,8 @@ const bigProjects = {
     {
       image: require("./assets/images/nextuLogo.webp"),
       projectName: "Pipeline CI/CD Automatizzata",
-      projectDesc: "Sistema completo di integrazione e deployment continuo con GitLab CI, TestContainers e deployment automatico.",
+      projectDesc:
+        "Sistema completo di integrazione e deployment continuo con GitLab CI, TestContainers e deployment automatico.",
       footerLink: [
         {
           name: "Visita Repository",
@@ -305,7 +307,8 @@ const podcastSection = {
 const resumeSection = {
   title: "Curriculum Vitae",
   subtitle: "Scarica il mio CV completo per maggiori dettagli",
-  resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+  resumeLink:
+    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
   display: false // Set false to hide this section, defaults to true
 };
 
