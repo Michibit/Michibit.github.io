@@ -13,7 +13,7 @@
   font-display: swap;
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: "Fira Code", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 html,
@@ -30,7 +30,41 @@ body {
 @media (max-width: 1380px) {
   html,
   body {
-    font-size: rem;
+    font-size: 1rem;
     line-height: normal;
   }
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR & SELECTION (DevOps Theme)
+   ========================================= */
+
+/* Scrollbar Minimal Dark */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00F2EA; /* Diventa Ciano al passaggio del mouse */
+}
+
+/* Text Selection Style (Hacker/Terminal Effect) */
+::selection {
+  background: #00F2EA; /* Sfondo Ciano */
+  color: #000000;      /* Testo Nero */
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333333 #000000;
 }
