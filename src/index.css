@@ -2,18 +2,26 @@
   font-family: "Agustina Regular";
   font-style: normal;
   font-weight: normal;
-  src: local("Agustina Regular"),
+  src:
+    local("Agustina Regular"),
     url("./assets/fonts/Agustina.woff") format("woff");
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: local("Montserrat"),
+  src:
+    local("Montserrat"),
     url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
   font-display: swap;
 }
 code {
-  font-family: "Fira Code", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family:
+    "Fira Code",
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Courier New",
     monospace;
 }
 html,
@@ -45,22 +53,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000; 
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333333; 
+  background: #333333;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00F2EA; /* Diventa Ciano al passaggio del mouse */
+  background: #00f2ea; /* Diventa Ciano al passaggio del mouse */
 }
 
 /* Text Selection Style (Hacker/Terminal Effect) */
 ::selection {
-  background: #00F2EA; /* Sfondo Ciano */
-  color: #000000;      /* Testo Nero */
+  background: #00f2ea; /* Sfondo Ciano */
+  color: #000000; /* Testo Nero */
 }
 
 /* Firefox Scrollbar */

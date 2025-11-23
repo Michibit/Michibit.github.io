@@ -339,21 +339,21 @@ export const lightTheme = {
   compImgHighlight: "#E6E6E6",
   jacketColor: "#55198b",
   headerColor: "#55198b77",
-  splashBg: "#55198b",
+  splashBg: "#55198b"
 };
 
 export const darkTheme = {
-  body: "#000000",           // Nero assoluto (OLED friendly)
-  text: "#F0F0F0",           // Bianco ghiaccio per massima leggibilità
-  expTxtColor: "#CFCFCF",    // Grigio chiaro tecnico
-  highlight: "#00F2EA",      // Ciano Neon (Cyan) - Tipico dei terminali moderni
-  dark: "#050505",           // Nero quasi assoluto per sfondi secondari
-  secondaryText: "#A0A0A0",  // Grigio argento
+  body: "#000000", // Nero assoluto (OLED friendly)
+  text: "#F0F0F0", // Bianco ghiaccio per massima leggibilità
+  expTxtColor: "#CFCFCF", // Grigio chiaro tecnico
+  highlight: "#00F2EA", // Ciano Neon (Cyan) - Tipico dei terminali moderni
+  dark: "#050505", // Nero quasi assoluto per sfondi secondari
+  secondaryText: "#A0A0A0", // Grigio argento
   imageHighlight: "#7B2CBF", // Viola Elettrico per accenti secondari
   compImgHighlight: "#00F2EA", // Ciano per bordi e loghi
-  jacketColor: "#00F2EA",    // Colore per le animazioni (omino)
+  jacketColor: "#00F2EA", // Colore per le animazioni (omino)
   headerColor: "rgba(0, 0, 0, 0.85)", // Header nero semitrasparente
-  splashBg: "#000000",       // Schermata di caricamento nera
+  splashBg: "#000000" // Schermata di caricamento nera
 };
 
 export const chosenTheme = darkTheme;
