@@ -2,89 +2,53 @@
 
 .social-media-div {
   font-size: 2em;
+  text-align: center;
 }
 
 .icon-button {
-  margin-bottom: 10px;
+  background-color: transparent !important; /* Niente cerchi solidi */
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  margin: 0 15px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  width: 2.6rem;
+  transition: 0.2s ease-in-out;
 }
 
 .icon-button i {
-  color: $textColorDark;
-  border-radius: 2.6rem;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1.3rem;
-  height: 2.6rem;
-  line-height: 2.6rem;
-  margin: 0 5px;
-  position: relative;
-  text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 2.6rem;
-  margin-bottom: 10px;
-  transition: 0.2s ease-in;
+  color: rgba(255,255,255,0.7); /* Bianco spento di base */
+  transition: all 0.2s;
+  font-size: 1.8rem;
 }
 
-.facebook i {
-  background-color: $faceBook;
+/* Hover Effects Specifici per Brand */
+.icon-button:hover i {
+  color: #fff;
+  transform: scale(1.1);
 }
 
-.linkedin i {
-  background-color: $linkedin;
+/* Github Glow */
+.icon-button.github:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0 20px rgba(255,255,255, 0.4);
 }
+.icon-button.github:hover i { color: #fff; }
 
-.github i {
-  background-color: $github;
+/* Linkedin Glow */
+.icon-button.linkedin:hover {
+  background-color: rgba(0, 119, 181, 0.2) !important;
+  box-shadow: 0 0 20px rgba(0, 119, 181, 0.6);
 }
+.icon-button.linkedin:hover i { color: #0077b5; }
 
-.gitlab i {
-  background-color: $gitlab;
+/* Gmail Glow */
+.icon-button.google:hover {
+  background-color: rgba(234, 67, 53, 0.2) !important;
+  box-shadow: 0 0 20px rgba(234, 67, 53, 0.6);
 }
-
-.google i {
-  background-color: $google;
-}
-
-.twitter i {
-  background-color: $twitter;
-}
-
-.medium i {
-  background-color: $medium;
-}
-
-.stack-overflow i {
-  background-color: $stackoverflow;
-}
-
-.kaggle i {
-  background-color: $kaggle;
-}
-
-.instagram i {
-  background-color: $instagram;
-}
-
-/* Hover Transition */
-.twitter i:hover,
-.google i:hover,
-.gitlab i:hover,
-.github i:hover,
-.linkedin i:hover,
-.facebook i:hover,
-.instagram i:hover,
-.stack-overflow i:hover,
-.kaggle i:hover,
-.medium i:hover {
-  background-color: $textColor;
-}
-
-/* Media Query */
-@media (max-width: 768px) {
-  .social-media-div {
-    text-align: center;
-  }
-}
+.icon-button.google:hover i { color: #ea4335; }

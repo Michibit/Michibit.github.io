@@ -1,127 +1,91 @@
 @import "../../_globalColor";
 
-.main {
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 4rem;
-}
 .greet-main {
   width: 90%;
   padding: 20px 10px;
   margin: 0px auto;
-  margin-top: 2rem;
+  margin-top: 8rem;
 }
 
 .greeting-main {
   display: flex;
+  align-items: center; /* Centra verticalmente immagine e testo */
 }
 
-.subTitle {
-  color: $subTitle !important;
-}
-
-.greeting-main {
+.greeting-text-div {
+  width: 55%;
+  padding-right: 30px;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ALLINEA TUTTO A SINISTRA */
 }
 
-.greeting-main > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-
-.empty-div {
-  margin-bottom: 40px;
-}
-
-.button-greeting-div {
-  display: flex;
-  margin-top: 40px;
-}
-.download-link-button {
-  text-decoration: none;
+.greeting-image-div {
+  width: 45%;
 }
 
 .greeting-text {
-  font-size: 70px;
+  font-size: 65px;
   line-height: 1.1;
-  color: $textColor !important;
+  color: $textColor;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .greeting-text-p {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 22px;
+  line-height: 1.6;
+  color: $subTitle;
+  margin-bottom: 30px;
+  text-align: left;
 }
 
-.greeting-image-div > img {
-  max-width: 100%;
-  height: auto;
+/* SOCIAL MEDIA (Spostati qui per controllo locale) */
+.greeting-text-div .social-media-div {
+  margin-top: 0;
+  margin-bottom: 30px; /* SPAZIO TRA SOCIAL E BOTTONI */
+  text-align: left;
+  padding-left: 0;
+  margin-left: -10px; /* Compensa il padding delle icone per allineamento ottico */
 }
 
-.wave-emoji {
-  animation-duration: 1.8s;
-  animation-iteration-count: infinite;
-  animation-name: wave;
-  display: inline-block;
-  transform-origin: 70% 70%;
+/* BOTTONI */
+.button-greeting-div {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Allinea a sinistra */
 }
 
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(-10deg);
-  }
-  20% {
-    transform: rotate(12deg);
-  }
-  30% {
-    transform: rotate(-10deg);
-  }
-  40% {
-    transform: rotate(9deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+.button-greeting-div > * {
+  margin: 0 !important;
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .greeting-text {
-    font-size: 50px;
-  }
-  .greeting-text-p {
-    font-size: 20px;
-  }
-}
 @media (max-width: 768px) {
-  .button-greeting-div {
-    justify-content: space-around;
-  }
-  .greeting-text {
-    font-size: 30px;
-    text-align: center;
-  }
-  .greeting-text-p {
-    font-size: 16px;
-    line-height: normal;
-    text-align: center;
-  }
   .greeting-main {
-    display: block;
+    flex-direction: column-reverse;
+    margin-top: -40px;
+  }
+  .greeting-text-div {
+    width: 100%;
+    align-items: center; /* Su mobile centra tutto */
+    text-align: center;
+    padding-right: 0;
+  }
+  .greeting-text, .greeting-text-p {
+    text-align: center;
+  }
+  .greeting-text-div .social-media-div {
+    text-align: center;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  .button-greeting-div {
+    justify-content: center;
   }
   .greeting-image-div {
-    height: 256px;
-  }
-}
-
-@media (max-width: 320px) {
-  .main {
-    width: auto;
+    width: 100%;
+    margin-bottom: 40px;
   }
 }

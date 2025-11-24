@@ -1,31 +1,74 @@
 @import "../../_globalColor";
 
-.dev-icons {
-  padding-left: 0;
-  list-style: none;
-  font-size: 3rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
+.software-skills-main-div {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.dev-icons-grid {
+  display: grid;
+  /* Griglia fluida e responsiva */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* Card Singola - PULITA */
+.software-skill-card {
+  /* Unico blocco visibile */
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px 10px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden; /* Taglia eventuali sbavature */
+
+  i {
+    font-size: 2.5rem;
+    color: #888;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+  }
+
+  p {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: $subTitle;
+    font-weight: 500;
+  }
+
+  /* Effetto Hover Neon */
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-5px);
+    border-color: $neon-cyan;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+
+    i {
+      color: $neon-cyan;
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 8px $neon-cyan);
+    }
+
+    p {
+      color: #fff;
+    }
+  }
 }
 
-.software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-.software-skill-inline > i {
-  color: $subTitle;
-}
-
-.software-skill-inline > i:hover {
-  color: $skillsColor;
-}
-.software-skill-inline > p {
-  color: $subTitle;
-  font-size: 10px;
-}
-.software-skill-inline > i:hover ~ p {
-  color: $skillsColor;
+@media (max-width: 768px) {
+  .dev-icons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+  }
 }

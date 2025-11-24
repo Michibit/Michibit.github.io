@@ -1,14 +1,14 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./Skills.scss";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
-import {illustration, skillsSection} from "../../portfolio";
-import {Fade} from "react-reveal";
+import { illustration, skillsSection } from "../../portfolio";
+import { Fade } from "react-reveal";
 import codingPerson from "../../assets/lottie/codingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Skills() {
-  const {isDark} = useContext(StyleContext);
+  const { isDark } = useContext(StyleContext);
   if (!skillsSection.display) {
     return null;
   }
@@ -44,19 +44,16 @@ export default function Skills() {
               {skillsSection.subTitle}
             </p>
             <SoftwareSkill />
-            <div>
-              {skillsSection.skills.map((skills, i) => {
+            
+            {/* GRID LAYOUT: Niente liste, solo Card Tecniche */}
+            <div className="skills-cards-container">
+              {skillsSection.skills.map((skill, i) => {
                 return (
-                  <p
-                    key={i}
-                    className={
-                      isDark
-                        ? "dark-mode subTitle skills-text"
-                        : "subTitle skills-text"
-                    }
-                  >
-                    {skills}
-                  </p>
+                  <div key={i} className="skill-tech-card">
+                    <div className="skill-card-content">
+                        {skill}
+                    </div>
+                  </div>
                 );
               })}
             </div>

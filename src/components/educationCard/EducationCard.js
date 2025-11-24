@@ -1,72 +1,65 @@
-import React, {createRef, useContext} from "react";
-import {Fade, Slide} from "react-reveal";
+import React, { createRef, useState } from "react";
+import { Fade } from "react-reveal";
 import "./EducationCard.scss";
-import StyleContext from "../../contexts/StyleContext";
+import ColorThief from "colorthief";
 
-export default function EducationCard({school}) {
+export default function EducationCard({ school }) {
+  const [colorArrays, setColorArrays] = useState([]);
   const imgRef = createRef();
 
-  const GetDescBullets = ({descBullets}) => {
-    return descBullets
-      ? descBullets.map((item, i) => (
-          <li key={i} className="subTitle">
-            {item}
-          </li>
-        ))
-      : null;
-  };
-  const {isDark} = useContext(StyleContext);
+  function getColorArrays() {
+    const colorThief = new ColorThief();
+    setColorArrays(colorThief.getColor(imgRef.current));
+  }
 
-  if (!school.logo)
-    console.error(`Image of ${school.name} is missing in education section`);
+  function rgb(values) {
+    return typeof values === "undefined" ? null : "rgb(" + values.join(", ") + ")";
+  }
+
   return (
-    <div>
-      <Fade left duration={1000}>
-        <div className="education-card">
-          {school.logo && (
-            <div className="education-card-left">
-              <img
-                crossOrigin={"anonymous"}
-                ref={imgRef}
-                className="education-roundedimg"
-                src={school.logo}
-                alt={school.schoolName}
-              />
-            </div>
-          )}
-          <div className="education-card-right">
-            <h5 className="education-text-school">{school.schoolName}</h5>
+    <Fade bottom duration={1000} distance="20px">
+      <div className="education-card-compact">
+        {/* LATO SINISTRO: LOGO & LINEA */}
+        <div className="education-card-left">
+          <div 
+            className="logo-wrapper"
+            style={{ boxShadow: `0 0 20px ${rgb(colorArrays) ? rgb(colorArrays) : 'rgba(189, 0, 255, 0.2)'}` }}
+          >
+            <img
+              crossOrigin={"anonymous"}
+              ref={imgRef}
+              className="education-logo"
+              src={school.logo}
+              alt={school.schoolName}
+              onLoad={() => getColorArrays()}
+            />
+          </div>
+          <div className="vertical-line"></div>
+        </div>
 
-            <div className="education-text-details">
-              <h5
-                className={
-                  isDark
-                    ? "dark-mode education-text-subHeader"
-                    : "education-text-subHeader"
-                }
-              >
-                {school.subHeader}
-              </h5>
-              <p
-                className={`${
-                  isDark ? "dark-mode" : ""
-                } education-text-duration`}
-              >
-                {school.duration}
-              </p>
-              <p className="education-text-desc">{school.desc}</p>
-              <div className="education-text-bullets">
-                <ul>
-                  <GetDescBullets descBullets={school.descBullets} />
-                </ul>
-              </div>
+        {/* LATO DESTRO: CONTENUTO */}
+        <div className="education-card-right">
+          <div className="education-header">
+            <div className="header-info">
+              <h5 className="school-name">{school.schoolName}</h5>
+              <h5 className="degree-name">{school.subHeader}</h5>
+            </div>
+            <div className="education-date-tag">
+              {school.duration}
             </div>
           </div>
+
+          <div className="education-details">
+            {school.descBullets && (
+              <ul className="education-bullets">
+                {school.descBullets.map((item, i) => (
+                  <li key={i} className="bullet-item">{item}</li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
-      </Fade>
-      <Slide left duration={2000}>
-        <div className="education-card-border"></div>
-      </Slide>
-    </div>
+      </div>
+    </Fade>
   );
 }

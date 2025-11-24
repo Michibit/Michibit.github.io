@@ -1,78 +1,86 @@
-@font-face {
-  font-family: "Agustina Regular";
-  font-style: normal;
-  font-weight: normal;
-  src:
-    local("Agustina Regular"),
-    url("./assets/fonts/Agustina.woff") format("woff");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Montserrat";
-  src:
-    local("Montserrat"),
-    url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
-  font-display: swap;
-}
-code {
-  font-family:
-    "Fira Code",
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    "Courier New",
-    monospace;
-}
-html,
-body {
-  scroll-behavior: smooth;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Fira+Code:wght@400;500&display=swap');
+
+/* RESET & BASE */
 body {
   margin: 0;
-  font: 19px / 23px Montserrat, "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif; /* Font elegante */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-/* Media Query */
-@media (max-width: 1380px) {
-  html,
-  body {
-    font-size: 1rem;
-    line-height: normal;
-  }
+  color: #ffffff;
+  overflow-x: hidden;
+  
+  /* SFONDO ANIMATO "DEEP SPACE" */
+  background: linear-gradient(-45deg, #020005, #120424, #051021, #000000);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
 }
 
-/* =========================================
-   CUSTOM SCROLLBAR & SELECTION (DevOps Theme)
-   ========================================= */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-/* Scrollbar Minimal Dark */
+code {
+  font-family: 'Fira Code', monospace;
+  color: #00f3ff;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+/* --- GLASSMORPHISM CARDS (Effetto Vetro) --- */
+/* Forza lo stile vetro su tutte le card principali */
+.repo-card-div, 
+.scholarship-card, 
+.certificate-card, 
+.blog-card-div,
+.experience-card,
+.degree-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hover Effect: Si illumina e si alza */
+.repo-card-div:hover, 
+.certificate-card:hover,
+.blog-card-div:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2), inset 0 0 20px rgba(0, 243, 255, 0.05) !important;
+  border-color: rgba(0, 243, 255, 0.3) !important;
+}
+
+/* --- SCROLLBAR ELEGANTE --- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #050505; 
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #333333;
-  border-radius: 4px;
+  background: #333; 
+  border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f2ea; /* Diventa Ciano al passaggio del mouse */
+  background: #bd00ff; /* Viola al passaggio */
 }
 
-/* Text Selection Style (Hacker/Terminal Effect) */
+/* Selezione Testo */
 ::selection {
-  background: #00f2ea; /* Sfondo Ciano */
-  color: #000000; /* Testo Nero */
+  background: #bd00ff;
+  color: #fff;
 }
 
-/* Firefox Scrollbar */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #333333 #000000;
+/* Header Glass */
+.header {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
 }

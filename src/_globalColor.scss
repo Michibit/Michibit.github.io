@@ -1,92 +1,76 @@
-/* Change colors in this file to style to your needs on a global level.
-   Updated for Black & Neon DevOps Theme */
+/* MIDNIGHT ELEGANCE THEME - FINAL */
 
-// PRIMARY ACCENTS (Neon Cyberpunk Style)
-$primary-color: #00f2ea; // Cyan Neon
-$secondary-color: #7b2cbf; // Electric Purple
-$background-black: #000000;
+// --- COLORI NEON & VETRO ---
+$neon-cyan: #00f3ff;
+$neon-green: #39ff14;
+$neon-purple: #bd00ff;
+$neon-pink: #ff00ff;
+$glass-bg: rgba(255, 255, 255, 0.04);
+$glass-border: rgba(255, 255, 255, 0.08);
+$deep-black: #020202;
 
-// BUTTONS
-$buttonColor: #7b2cbf; // Viola per i bottoni principali
-$buttonHover: #00f2ea; // Diventa Ciano al passaggio del mouse
-$topButtonHover: #00f2ea;
+// --- MAPPING VARIABILI ---
+$lightBackground1: transparent; 
+$lightBackground2: transparent;
+$lightBackground3: transparent;
+$darkBackground: transparent;
+$blogCardContainerColor: $glass-bg;
 
-// TEXT COLORS (Light Theme)
-$titleColor: #000000;
-$textColor: #000000;
-$subTitle: #868e96;
-$cardSubtitle: #666666;
-$talkCardSubTitle: #7f8287;
-$blogCardTitleColor: #262626;
+$titleColor: #ffffff;
+$textColor: #f0f0f0;
+$textColorDark: #f0f0f0;
+$subTitle: #a0a0a0;
+$cardSubtitle: #a0a0a0;
+$talkCardSubTitle: #a0a0a0;
+$blogCardTitleColor: #ffffff;
 
-// TEXT COLORS (Dark Theme)
-$textColorDark: #ffffff;
+$buttonColor: $glass-bg;
+$buttonHover: $neon-purple; 
+$topButtonHover: $neon-cyan;
 
-// TOGGLES
-$toggleCheck: #00f2ea;
-$toggleSwitchSliderBG: #333;
+$toggleCheck: $neon-cyan;
+$toggleSwitchSliderBG: rgba(255,255,255,0.1);
 
-// GITHUB CARDS
-$githubRepoCardLanguageColorBG: #00f2ea;
-$githubRepoCardColor: #1a1a1a;
-$githubRepoCardRepoCardStatsColor: #a0a0a0;
-$githubRepoCardRepoNameColor: #ffffff;
-$githubProfileCardLocationTS: #ffffff;
-$githubProfileCardBorder: #333333;
+$githubRepoCardLanguageColorBG: $neon-cyan;
+$githubRepoCardColor: $glass-bg;
+$githubRepoCardRepoCardStatsColor: $subTitle;
+$githubRepoCardRepoNameColor: $titleColor;
+$githubProfileCardLocationTS: $titleColor;
+$githubProfileCardBorder: $glass-border;
 
-// BACKGROUNDS (Light Theme)
-$lightBackground1: #fff;
-$lightBackground2: rgb(255, 255, 255);
-$lightBackground3: #f5f2f4;
-$blogCardContainerColor: #d9dbdf;
+// Ombre e Glow
+$lightBoxShadow: none;
+$lightBoxShadowDark: none;
+$lightBoxShadowDarker: none;
+$darkBoxShadow: 0 10px 30px rgba(0,0,0,0.5); 
+$darkBoxShadow2: 0 0 20px rgba(0, 243, 255, 0.1);
 
-// BACKGROUNDS (Dark Theme)
-$darkBackground: #000000; // Nero Assoluto
+// Gradienti
+$experienceCardBlurredDivLG: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));
+$experienceCardBannerLG: linear-gradient(90deg, rgba(0,243,255,0.05), rgba(189,0,255,0.05));
 
-// SHADOWS & GLOWS (Light Theme)
-$lightBoxShadowDark: rgba(0, 0, 0, 0.2);
-$lightBoxShadow: rgba(0, 0, 0, 0.1);
-$lightBoxShadowDarker: rgba(0, 0, 0, 0.3);
+// Bordi
+$progressBarBackground: rgba(255,255,255,0.1);
+$lightBorder1: $glass-border;
+$educationCardBorder: $glass-border;
+$progressBarSpanBG: $neon-cyan;
 
-// SHADOWS & GLOWS (Dark Theme - Neon Effect)
-// Invece di ombre scure, usiamo bagliori colorati su sfondo nero
-$darkBoxShadow: 0px 0px 15px rgba(0, 242, 234, 0.15); // Cyan Glow leggero
-$darkBoxShadow2: 0px 0px 20px rgba(123, 44, 191, 0.25); // Purple Glow intenso
-
-// GRADIENTS
-$experienceCardBlurredDivLG: linear-gradient(
-  rgba(0, 0, 0, 0.8),
-  rgba(0, 0, 0, 0.4)
-);
-$experienceCardBannerLG: linear-gradient(
-  rgba(0, 0, 0, 0.9),
-  rgba(0, 0, 0, 0.7)
-);
-
-// BORDERS & BARS
-$progressBarBackground: #333333;
-$lightBorder1: rgba(255, 255, 255, 0.1);
-$educationCardBorder: #333333;
-
-// HOVERS
-$achievementCertificateCardHoverDark: rgba(0, 242, 234, 0.1);
-$blogCardHoverSmallColor: rgba(255, 255, 255, 0.8);
+// Hover
+$achievementCertificateCardHoverDark: rgba(255, 255, 255, 0.1);
+$blogCardHoverSmallColor: rgba(255, 255, 255, 0.2);
 $headerHoverBG: rgba(255, 255, 255, 0.1);
-$contactDetailHoverTS: #00f2ea;
+$contactDetailHoverTS: $neon-cyan;
 
-// MISC
-$progressBarSpanBG: #00f2ea; // Barra progresso Ciano
-$iconBackground: #1a1a1a;
-$appHeaderBG: #000000; // Header nero
+// Misc
+$iconBackground: transparent;
+$appHeaderBG: rgba(5, 5, 5, 0.8);
+$skillsColor: $neon-cyan;
+$appLink: $neon-cyan;
 
-// MISC COLORS
-$skillsColor: #7b2cbf; // Viola
-$appLink: #00f2ea; // Link Ciano
-
-// SOCIAL MEDIA (Uniformati per stile minimal dark)
+// Social
 $faceBook: #3b5998;
-$linkedin: #0e76a8;
-$github: #ffffff; // GitHub bianco su nero
+$linkedin: #0077b5;
+$github: #ffffff;
 $gitlab: #fca326;
 $google: #ea4335;
 $twitter: #1da1f2;

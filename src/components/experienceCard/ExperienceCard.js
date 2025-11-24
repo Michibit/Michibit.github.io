@@ -1,8 +1,8 @@
-import React, {useState, createRef} from "react";
+import React, { useState, createRef } from "react";
 import "./ExperienceCard.scss";
 import ColorThief from "colorthief";
 
-export default function ExperienceCard({cardInfo, isDark}) {
+export default function ExperienceCard({ cardInfo, isDark }) {
   const [colorArrays, setColorArrays] = useState([]);
   const imgRef = createRef();
 
@@ -12,72 +12,45 @@ export default function ExperienceCard({cardInfo, isDark}) {
   }
 
   function rgb(values) {
-    return typeof values === "undefined"
-      ? null
-      : "rgb(" + values.join(", ") + ")";
+    return typeof values === "undefined" ? null : "rgb(" + values.join(", ") + ")";
   }
 
-  const GetDescBullets = ({descBullets, isDark}) => {
-    return descBullets
-      ? descBullets.map((item, i) => (
-          <li
-            key={i}
-            className={isDark ? "subTitle dark-mode-text" : "subTitle"}
-          >
-            {item}
-          </li>
-        ))
-      : null;
-  };
-
   return (
-    <div className={isDark ? "experience-card-dark" : "experience-card"}>
-      <div style={{background: rgb(colorArrays)}} className="experience-banner">
-        <div className="experience-blurred_div"></div>
-        <div className="experience-div-company">
-          <h5 className="experience-text-company">{cardInfo.company}</h5>
+    <div className="experience-card-compact">
+      {/* Lato Sinistro: Logo e Linea */}
+      <div className="experience-card-left">
+        <div className="logo-wrapper" style={{boxShadow: `0 0 15px ${rgb(colorArrays)}`}}>
+          <img
+            crossOrigin={"anonymous"}
+            ref={imgRef}
+            className="company-logo"
+            src={cardInfo.companylogo}
+            alt={cardInfo.company}
+            onLoad={() => getColorArrays()}
+          />
         </div>
-
-        <img
-          crossOrigin={"anonymous"}
-          ref={imgRef}
-          className="experience-roundedimg"
-          src={cardInfo.companylogo}
-          alt={cardInfo.company}
-          onLoad={() => getColorArrays()}
-        />
+        <div className="connection-line"></div>
       </div>
-      <div className="experience-text-details">
-        <h5
-          className={
-            isDark
-              ? "experience-text-role dark-mode-text"
-              : "experience-text-role"
-          }
-        >
-          {cardInfo.role}
-        </h5>
-        <h5
-          className={
-            isDark
-              ? "experience-text-date dark-mode-text"
-              : "experience-text-date"
-          }
-        >
-          {cardInfo.date}
-        </h5>
-        <p
-          className={
-            isDark
-              ? "subTitle experience-text-desc dark-mode-text"
-              : "subTitle experience-text-desc"
-          }
-        >
-          {cardInfo.desc}
-        </p>
-        <ul>
-          <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />
-        </ul>
+
+      {/* Lato Destro: Contenuto */}
+      <div className="experience-card-right">
+        <div className="card-header">
+          <div>
+            <h5 className="role-title">{cardInfo.role}</h5>
+            <h5 className="company-name">{cardInfo.company}</h5>
+          </div>
+          <div className="date-badge">{cardInfo.date}</div>
+        </div>
+        
+        <p className="job-description">{cardInfo.desc}</p>
+        
+        {cardInfo.descBullets && (
+          <ul className="job-bullets">
+            {cardInfo.descBullets.map((item, i) => (
+              <li key={i} className="bullet-item">{item}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

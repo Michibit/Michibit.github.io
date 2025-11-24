@@ -1,70 +1,136 @@
 @import "../../_globalColor";
 
-.meter {
-  height: 20px;
-  position: relative;
-  background: $progressBarBackground;
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  border-radius: 25px;
+.skills-container {
+  display: flex;
+  padding: 50px 20px;
+  margin: 0 auto;
+  max-width: 1300px;
+  align-items: center;
+  margin-top: 2rem;
 }
+
+.skills-bar {
+  width: 55%;
+  padding-right: 50px;
+}
+
+.skills-image {
+  width: 45%;
+}
+
+.skills-image img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.15));
+}
+
+.skills-heading {
+  font-size: 50px;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 30px;
+  color: $titleColor;
+  text-align: left;
+}
+
+/* --- NUOVO DESIGN BARRE (SYSTEM MONITOR) --- */
+.skills-bar-container {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.skill-item {
+  margin-bottom: 25px;
+}
+
+.skill-item:last-child {
+  margin-bottom: 0;
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-family: 'Fira Code', monospace;
+}
+
+.skill-name {
+  font-size: 1rem;
+  color: $textColor;
+  font-weight: 600;
+  margin: 0;
+}
+
+.skill-percentage {
+  font-size: 0.9rem;
+  color: $neon-cyan;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Barra Sfondo */
+.meter {
+  height: 8px; /* Barra sottile ed elegante */
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Barra Riempimento */
 .meter > span {
   display: block;
   height: 100%;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: $progressBarSpanBG;
+  border-radius: 20px;
+  background: linear-gradient(90deg, $neon-cyan, $neon-purple);
   position: relative;
-  overflow: hidden;
-}
-.skill {
-  line-height: 3.5vw;
-}
-.skill-bars {
-  font-size: 28px;
-  width: 40%;
-}
-.skills-container {
-  display: flex;
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
-}
-.skills-container > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-.skills-image > img {
-  margin-left: 80px;
-  max-width: 90%;
-  height: auto;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.5); /* Glow principale */
+  transition: width 1s ease-in-out;
 }
 
-/* Media Query */
+/* Effetto "Scorrimento Luce" sulla barra */
+.progress-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
 
-@media (max-width: 1456px) {
-  .skills-bar {
-    line-height: 4rem;
-  }
-  .skills-image {
-    display: none;
-    order: 2;
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
 }
 
-@media (max-width: 768px) {
+/* Media Queries */
+@media (max-width: 1024px) {
   .skills-container {
     flex-direction: column;
   }
   .skills-bar {
-    line-height: 3rem;
-    margin: 20px;
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 40px;
   }
   .skills-image {
-    display: none;
+    width: 80%;
     order: 2;
+  }
+  .skills-heading {
+    text-align: center;
+    font-size: 40px;
   }
 }

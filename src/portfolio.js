@@ -1,332 +1,224 @@
 /* Change this file to get your personal Portfolio */
 
-// To change portfolio colors globally go to the  _globalColor.scss file
-
 import emoji from "react-easy-emoji";
-import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
-
-// Splash Screen
+import splashAnimation from "./assets/lottie/splashAnimation"; 
 
 const splashScreen = {
-  enabled: true, // set false to disable splash screen
+  enabled: true,
   animation: splashAnimation,
-  duration: 2000 // Set animation duration as per your animation
+  duration: 2000 
 };
 
-// Summary And Greeting Section
-
 const illustration = {
-  animated: true // Set to false to use static SVG
+  animated: true 
 };
 
 const greeting = {
   username: "Michibit",
-  title: "Salve, sono Michele Menzione",
+  title: "Michele Menzione",
   subTitle: emoji(
-    "DevOps Engineer e Sistemista 🚀 specializzato in automazione, infrastrutture e ambienti cloud scalabili."
+    "DevOps Engineer & System Administrator. Architetto infrastrutture resilienti, automatizzo il deployment e gestisco sistemi mission-critical."
   ),
-  resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
-  displayGreeting: true // Set false to hide this section, defaults to true
+  resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+  displayGreeting: true 
 };
-
-// Social Media Links
 
 const socialMediaLinks = {
   github: "https://github.com/Michibit",
   linkedin: "https://www.linkedin.com/in/michele-menzione-534580268/",
   gmail: "menzione.m@gmail.com",
-  display: true // Set true to display this section, defaults to false
+  display: true 
 };
 
-// Skills Section
-
 const skillsSection = {
-  title: "Competenze",
-  subTitle:
-    "DevOps e Sistemista appassionato di infrastrutture scalabili, automazione e performance 🔧",
+  title: "Stack Tecnologico",
+  subTitle: "Strumenti e tecnologie per l'automazione e la gestione infrastrutturale.",
   skills: [
-    emoji("🔁 Automazione dei processi CI/CD e provisioning"),
-    emoji("🛠️ Monitoraggio, logging e ottimizzazione di ambienti complessi"),
-    emoji(
-      "🔐 Configurazione e gestione di ambienti sicuri, con controllo degli accessi e best practice di sicurezza"
-    ),
-    emoji(
-      "🧠 Esperienza su Linux, containerizzazione, orchestrazione e scripting avanzato"
-    )
+    "CI/CD Pipelines Automation",
+    "Infrastructure as Code (IaC)",
+    "Cloud Native & Hybrid Cloud",
+    "Security Hardening & Compliance",
+    "Container Orchestration",
+    "System Monitoring & Logging"
   ],
 
   softwareSkills: [
-    {
-      skillName: "Windows",
-      fontAwesomeClassname: "fab fa-windows"
-    },
-    {
-      skillName: "Linux",
-      fontAwesomeClassname: "fab fa-linux"
-    },
-    {
-      skillName: "Ansible",
-      fontAwesomeClassname: "fas fa-cogs"
-    },
-    {
-      skillName: "Python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
-      skillName: "Bash",
-      fontAwesomeClassname: "fas fa-terminal"
-    },
-    {
-      skillName: "Azure",
-      fontAwesomeClassname: "fab fa-microsoft"
-    },
-    {
-      skillName: "Kubernetes",
-      fontAwesomeClassname: "fas fa-dharmachakra"
-    },
-    {
-      skillName: "Docker",
-      fontAwesomeClassname: "fab fa-docker"
-    }
+    { skillName: "Windows Server", fontAwesomeClassname: "fab fa-windows" },
+    { skillName: "Linux", fontAwesomeClassname: "fab fa-linux" },
+    { skillName: "Ansible", fontAwesomeClassname: "fas fa-cogs" },
+    { skillName: "Python", fontAwesomeClassname: "fab fa-python" },
+    { skillName: "Bash", fontAwesomeClassname: "fas fa-terminal" },
+    { skillName: "Azure", fontAwesomeClassname: "fab fa-microsoft" },
+    { skillName: "Kubernetes", fontAwesomeClassname: "fas fa-dharmachakra" },
+    { skillName: "Docker", fontAwesomeClassname: "fab fa-docker" },
+    { skillName: "Git", fontAwesomeClassname: "fab fa-git-alt" }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: true 
 };
-
-// Education Section
 
 const educationInfo = {
-  display: true, // Set false to hide this section, defaults to true
+  display: true, 
   schools: [
     {
-      schoolName: "Università degli studi di Salerno (Unisa)",
+      schoolName: "Università degli Studi di Salerno",
       logo: require("./assets/images/Unisalogo.png"),
-      subHeader: "Laurea Triennale in Informatica",
-      duration: "Settembre 2021 - Marzo 2024",
+      subHeader: "Laurea in Informatica",
+      duration: "2021 - 2024",
       descBullets: [
-        "Sviluppo Software e Algoritmi",
-        "Sistemi Distribuiti e Cloud Computing",
-        "Sicurezza Informatica"
+        "Sistemi Distribuiti & Cloud",
+        "Architetture Software",
+        "Network Security"
       ]
     }
   ]
 };
-
-// Your top 3 proficient stacks/tech experience
 
 const techStack = {
-  viewSkillBars: true, //Set it to true to show Proficiency Section
+  viewSkillBars: true, 
   experience: [
-    {
-      Stack: "Sistemi Linux/Windows", //Insert stack or technology you have experience in
-      progressPercentage: "90%" //Insert relative proficiency in percentage
-    },
-    {
-      Stack: "Cloud (Azure)",
-      progressPercentage: "80%"
-    },
-    {
-      Stack: "Scripting (Python, Bash)",
-      progressPercentage: "85%"
-    },
-    {
-      Stack: "Container e Orchestrazione",
-      progressPercentage: "75%"
-    },
-    {
-      Stack: "Automazione",
-      progressPercentage: "70%"
-    }
+    { Stack: "SysAdmin", progressPercentage: "92%" },
+    { Stack: "Azure", progressPercentage: "85%" },
+    { Stack: "Automation", progressPercentage: "88%" },
+    { Stack: "K8s/Docker", progressPercentage: "78%" },
+    { Stack: "DevOps", progressPercentage: "80%" }
   ],
-  displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
+  displayCodersrank: false 
 };
 
-// Work experience section
-
 const workExperiences = {
-  display: true, //Set it to true to show workExperiences Section
+  display: true, 
   experience: [
     {
-      role: "Dev Ops & System Engineer",
+      role: "DevOps & System Engineer",
       company: "System Management S.p.A.",
-      companylogo: require("./assets/images/sysmanagement_logo.jpg"), // Sostituisci con il logo dell'azienda quando disponibile
-      date: "Giugno 2023 - Presente",
-      desc: "Ruolo a tempo pieno con focus su gestione sistemi, DevOps e automazione in ambiente ibrido.",
+      companylogo: require("./assets/images/sysmanagement_logo.jpg"),
+      date: "Giu 2023 - Presente",
+      desc: "Gestione infrastrutture enterprise e automazione processi.",
       descBullets: [
-        "Gestione Active Directory e amministrazione di sistemi",
-        "Risoluzione problemi e troubleshooting in ambienti complessi",
-        "Implementazione e manutenzione di infrastrutture IT",
-        "Automazione dei processi e CI/CD"
+        "Gestione Active Directory e ambienti Ibridi",
+        "Troubleshooting server Linux/Windows",
+        "Pipeline CI/CD e Automazione",
+        "Monitoraggio proattivo"
       ]
     },
     {
-      role: "R&D Engineer",
+      role: "R&D Engineer (Internship)",
       company: "System Management S.p.A.",
-      companylogo: require("./assets/images/sysmanagement_logo.jpg"), // Sostituisci con il logo dell'azienda quando disponibile
-      date: "Gennaio 2023 - Giugno 2023",
-      desc: "Ruolo part-time nel dipartimento di Ricerca e Sviluppo.",
+      companylogo: require("./assets/images/sysmanagement_logo.jpg"),
+      date: "Gen 2023 - Giu 2023",
+      desc: "Ricerca e sviluppo tecnologie cloud.",
       descBullets: [
-        "Sviluppo di soluzioni con Python per automazione e analisi dati",
-        "Amministrazione di sistemi Linux",
-        "Partecipazione a progetti di ricerca e innovazione",
-        "Testing e implementazione di nuove tecnologie"
+        "Scripting Python per analisi log",
+        "PoC Docker e Kubernetes",
+        "Supporto migrazione Cloud"
       ]
     }
   ]
 };
 
-/* Your Open Source Section to View Your Github Pinned Projects
-To know how to get github key look at readme.md */
-
 const openSource = {
-  showGithubProfile: "true", // Set true or false to show Contact profile using Github, defaults to true
-  display: false // Set false to hide this section, defaults to true
+  showGithubProfile: "true", 
+  display: false 
 };
-
-// Some big projects you have worked on
 
 const bigProjects = {
   title: "Progetti",
-  subtitle: "Alcuni dei miei progetti e contributi significativi",
+  subtitle: "Challenge tecniche affrontate.",
   projects: [
     {
       image: require("./assets/images/saayaHealthLogo.webp"),
-      projectName: "Infrastruttura Kubernetes Multi-Cloud",
-      projectDesc:
-        "Implementazione di un cluster Kubernetes distribuito su più provider cloud per alta disponibilità e disaster recovery.",
+      projectName: "K8s Multi-Cloud",
+      projectDesc: "Cluster Kubernetes distribuito per HA e DR.",
       footerLink: [
-        {
-          name: "Visita Repository",
-          url: "https://github.com/Michibit"
-        }
+        { name: "GitHub", url: "https://github.com/Michibit" }
       ]
     },
     {
       image: require("./assets/images/nextuLogo.webp"),
-      projectName: "Pipeline CI/CD Automatizzata",
-      projectDesc:
-        "Sistema completo di integrazione e deployment continuo con GitLab CI, TestContainers e deployment automatico.",
+      projectName: "CI/CD Pipeline",
+      projectDesc: "Pipeline GitLab CI completa con security scan.",
       footerLink: [
-        {
-          name: "Visita Repository",
-          url: "https://github.com/Michibit"
-        }
+        { name: "GitHub", url: "https://github.com/Michibit" }
       ]
     }
   ],
-  display: false // Set false to hide this section, defaults to true
+  display: false 
 };
 
-// Achievement Section
-// Include certificates, talks etc
-
 const achievementSection = {
-  title: emoji("Certificazioni e Riconoscimenti 🏆 "),
-  subtitle: "Riconoscimenti, Certificazioni che ho conseguito!",
-
+  title: emoji("Certificazioni 🏆"),
+  subtitle: "Competenze validate.",
   achievementsCards: [
     {
       title: "Microsoft Certified: Azure Administrator Associate",
-      subtitle:
-        "Riconoscimento ufficiale Microsoft per la gestione di ambienti Azure, incluse reti, identità, storage e monitoraggio.",
+      subtitle: "Azure Administrator Associate",
       image: require("./assets/images/azure-administrator-associate.png"),
-      imageAlt: "Azure Admin Logo",
+      imageAlt: "Azure Admin",
       footerLink: [
-        {
-          name: "Certificazione",
-          url: "https://learn.microsoft.com/api/credentials/share/it-it/MicheleMenzione-8223/D155D2D9EE7D95EE?sharingId=88BCFBE49FFCADE0"
-        }
+        { name: "Verifica", url: "https://learn.microsoft.com/api/credentials/share/it-it/MicheleMenzione-8223/D155D2D9EE7D95EE?sharingId=88BCFBE49FFCADE0" }
+      ]
+    },
+    {
+      title: "Microsoft Certified: Azure Solutions Architect Expert", 
+      subtitle: "Azure Solutions Architect Expert",
+      image: require("./assets/images/microsoft-certified-expert-badge.png"), 
+      imageAlt: "Azure Solutions Architect Expert",
+      footerLink: [
+        { name: "Verifica", url: "https://learn.microsoft.com/api/credentials/share/it-it/MicheleMenzione-8223/56A1EF8E4AA1CC2A?sharingId=88BCFBE49FFCADE0" }
       ]
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: true 
 };
-
-// Blogs Section
 
 const blogSection = {
   title: "Blog",
-  subtitle:
-    "Condivido le mie conoscenze e esperienze attraverso articoli tecnici.",
-  displayMediumBlogs: "false", // Set true to display fetched medium blogs instead of hardcoded ones
+  subtitle: "Note tecniche.",
+  displayMediumBlogs: "false",
   blogs: [
     {
       url: "#",
-      title: "Automazione DevOps con Ansible e Terraform",
-      description:
-        "Come ho implementato l'automazione completa dell'infrastruttura usando strumenti open source."
-    },
-    {
-      url: "#",
-      title: "Kubernetes: dall'installazione alla produzione",
-      description:
-        "Guida pratica all'implementazione di un cluster Kubernetes pronto per la produzione."
+      title: "Terraform: IaC",
+      description: "Guida all'Infrastructure as Code."
     }
   ],
-  display: false // Set false to hide this section, defaults to true
+  display: false 
 };
-
-// Talks Sections
 
 const talkSection = {
-  title: "Conferenze",
-  subtitle: emoji(
-    "Condivisione di conoscenze e partecipazione a eventi nel settore DevOps e Cloud"
-  ),
-
-  talks: [
-    {
-      title: "Best Practices per CI/CD in ambienti cloud",
-      subtitle: "Workshop presso Tech Conference 2023",
-      slides_url: "#",
-      event_url: "#"
-    }
-  ],
-  display: false // Set false to hide this section, defaults to true
+  title: "Talks",
+  subtitle: "",
+  talks: [],
+  display: false 
 };
-
-// Podcast Section
 
 const podcastSection = {
   title: emoji("Podcast 🎙️"),
-  subtitle: "Discussioni tecniche e interviste nel mondo DevOps",
-
-  // Please Provide with Your Podcast embeded Link
-  podcast: [
-    "https://anchor.fm/example/embed/episodes/DevOps-Best-Practices-e9givv/a-a15itvo"
-  ],
-  display: false // Set false to hide this section, defaults to true
+  subtitle: "",
+  podcast: [],
+  display: false 
 };
 
-// Resume Section
 const resumeSection = {
-  title: "Curriculum Vitae",
-  subtitle: "Scarica il mio CV completo per maggiori dettagli",
-  resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
-  display: false // Set false to hide this section, defaults to true
+  title: "CV",
+  subtitle: "",
+  resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+  display: false 
 };
 
 const contactInfo = {
-  title: emoji("Contattami ☎️"),
-  subtitle:
-    "Hai un progetto da proporre o desideri metterti in contatto? Sentiti libero di scrivermi!",
-  number: "", // Lasciato vuoto intenzionalmente
-  email_address: "menzione.m@gmail.com"
+  title: emoji("Contattami 📬"),
+  subtitle: "Parliamo di progetti e cloud.",
+  number: "",
+  email_address: "mmenzione4@gmail.com"
 };
-
-// Twitter Section
 
 const twitterDetails = {
-  userName: "twitter", //Replace "twitter" with your twitter username without @
-  display: false // Set true to display this section, defaults to false
+  userName: "twitter",
+  display: false 
 };
 
-const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
-
-// 🎨 THEME DEFINITION
-// =========================================
-// Black & Neon Theme for DevOps/System Engineers
+const isHireable = true; 
 
 export const lightTheme = {
   body: "#FFFFFF",
@@ -339,21 +231,21 @@ export const lightTheme = {
   compImgHighlight: "#E6E6E6",
   jacketColor: "#55198b",
   headerColor: "#55198b77",
-  splashBg: "#55198b"
+  splashBg: "#55198b",
 };
 
 export const darkTheme = {
-  body: "#000000", // Nero assoluto (OLED friendly)
-  text: "#F0F0F0", // Bianco ghiaccio per massima leggibilità
-  expTxtColor: "#CFCFCF", // Grigio chiaro tecnico
-  highlight: "#00F2EA", // Ciano Neon (Cyan) - Tipico dei terminali moderni
-  dark: "#050505", // Nero quasi assoluto per sfondi secondari
-  secondaryText: "#A0A0A0", // Grigio argento
-  imageHighlight: "#7B2CBF", // Viola Elettrico per accenti secondari
-  compImgHighlight: "#00F2EA", // Ciano per bordi e loghi
-  jacketColor: "#00F2EA", // Colore per le animazioni (omino)
-  headerColor: "rgba(0, 0, 0, 0.85)", // Header nero semitrasparente
-  splashBg: "#000000" // Schermata di caricamento nera
+  body: "transparent",       
+  text: "#FFFFFF",           
+  expTxtColor: "#d1d5db",    
+  highlight: "#00f3ff",      
+  dark: "#000000",           
+  secondaryText: "#a0a0a0",  
+  imageHighlight: "#bd00ff", 
+  compImgHighlight: "#00f3ff",
+  jacketColor: "#00f3ff",    
+  headerColor: "rgba(0,0,0,0.5)",
+  splashBg: "#050505",
 };
 
 export const chosenTheme = darkTheme;
