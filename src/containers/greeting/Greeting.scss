@@ -9,7 +9,7 @@
 
 .greeting-main {
   display: flex;
-  align-items: center; /* Centra verticalmente immagine e testo */
+  align-items: center;
 }
 
 .greeting-text-div {
@@ -17,7 +17,7 @@
   padding-right: 30px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* ALLINEA TUTTO A SINISTRA */
+  align-items: flex-start;
 }
 
 .greeting-image-div {
@@ -41,51 +41,58 @@
   text-align: left;
 }
 
-/* SOCIAL MEDIA (Spostati qui per controllo locale) */
 .greeting-text-div .social-media-div {
-  margin-top: 0;
-  margin-bottom: 30px; /* SPAZIO TRA SOCIAL E BOTTONI */
+  margin-bottom: 30px;
   text-align: left;
-  padding-left: 0;
-  margin-left: -10px; /* Compensa il padding delle icone per allineamento ottico */
+  margin-left: -10px;
 }
 
-/* BOTTONI */
 .button-greeting-div {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
-  justify-content: flex-start; /* Allinea a sinistra */
 }
 
-.button-greeting-div > * {
-  margin: 0 !important;
-}
-
-@media (max-width: 768px) {
-  .greeting-main {
-    flex-direction: column-reverse;
-    margin-top: -40px;
+/* MOBILE RESPONSIVE FIX */
+@media (max-width: 960px) {
+  .greet-main {
+    margin-top: 4rem;
   }
+  
+  .greeting-main {
+    flex-direction: column-reverse; /* Immagine sopra il testo */
+    text-align: center;
+  }
+
   .greeting-text-div {
     width: 100%;
-    align-items: center; /* Su mobile centra tutto */
-    text-align: center;
     padding-right: 0;
+    align-items: center; /* Centra orizzontalmente */
   }
-  .greeting-text, .greeting-text-p {
+
+  .greeting-image-div {
+    width: 80%;
+    margin-bottom: 40px;
+  }
+
+  .greeting-text {
+    font-size: 40px; /* Font più piccolo */
     text-align: center;
   }
+
+  .greeting-text-p {
+    font-size: 18px;
+    text-align: center;
+  }
+
   .greeting-text-div .social-media-div {
     text-align: center;
     margin-left: 0;
-    margin-bottom: 20px;
+    justify-content: center;
+    display: flex;
   }
+
   .button-greeting-div {
     justify-content: center;
-  }
-  .greeting-image-div {
-    width: 100%;
-    margin-bottom: 40px;
   }
 }

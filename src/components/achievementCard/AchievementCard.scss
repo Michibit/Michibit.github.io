@@ -1,77 +1,129 @@
 @import "../../_globalColor";
 
-.card-image {
-  max-width: 100%;
-  height: auto;
-  width: 250px;
-}
-.card-title {
-  color: $titleColor;
-  font-size: 1.375rem;
-  line-height: 24px;
-  font-weight: 700;
-  margin: 15px 0 0 0;
-}
-.card-subtitle {
-  color: $cardSubtitle;
-  font-size: 1.063rem;
-  line-height: 1.5rem;
-}
 .certificate-card {
-  background-color: $lightBackground2;
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid $lightBorder1;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-.certificate-detail-div {
-  text-align: center;
-}
-.certificate-card:hover {
-  box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
-}
-.dark-mode.certificate-card:hover {
-  box-shadow: $achievementCertificateCardHoverDark 0px 20px 30px -10px;
-}
-.certificate-image-div {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 25px;
   position: relative;
-  height: 250px;
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%; /* Altezza uniforme */
+  
+  /* Linea decorativa superiore */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $neon-cyan, $neon-purple);
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+
+  /* HOVER EFFECT: SCALA E ILLUMINA */
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    
+    &::before {
+      opacity: 1;
+      box-shadow: 0 0 15px $neon-cyan;
+    }
+  }
 }
-.achievement-cards-div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem 1rem;
-}
-.certificate-card-footer {
+
+.certificate-image-div {
+  width: 100%;
+  height: 180px;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  background: #fff; /* Sfondo bianco per far risaltare i loghi */
+  border-radius: 8px;
+  padding: 15px;
 }
-.certificate-card-footer span.certificate-tag {
-  background: $buttonColor;
-  color: $lightBackground3;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 4px;
-  display: inline-flex;
-  font-size: 0.75rem;
-  height: 2em;
-  justify-content: center;
-  white-space: nowrap;
-  line-height: 1.5;
-  margin: 0 0.5rem 0.5rem 0;
-  padding: 0 0.75em;
+
+.card-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.certificate-detail-div {
+  flex-grow: 1; /* Spinge il footer in basso */
+  text-align: left;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.card-subtitle {
+  font-size: 0.95rem;
+  color: $subTitle;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* FOOTER PULSANTI */
+.certificate-card-footer {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* STILE PULSANTE VERIFICA */
+.cert-button {
+  background: transparent;
+  border: 1px solid $neon-cyan;
+  color: $neon-cyan;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: 0.2s ease-in;
+  transition: all 0.3s ease;
+  width: 100%; /* Bottone largo */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background: $neon-cyan;
+    color: #000; /* Testo nero su sfondo ciano */
+    box-shadow: 0 0 20px $neon-cyan;
+    transform: translateY(-2px);
+  }
 }
-span.certificate-tag:hover {
-  background: $buttonHover;
+
+.achievement-card-modern {
+  background: rgba(15, 15, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  
+  /* Rimuovi eventuali margini fissi che potrebbero interferire con la griglia */
+  margin: 0; 
+  height: 100%; 
+  
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $neon-cyan;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
 }

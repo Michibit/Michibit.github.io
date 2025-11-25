@@ -1,22 +1,28 @@
 @import "../../_globalColor";
 
+/*React-headroom wrapper*/
 .headroom-wrapper {
-  max-height: 100px;
+  width: 100%;
+  z-index: 9999; /* Assicura che stia sopra a tutto */
 }
 
+/* Stile Base Header */
 .header {
-  background-color: rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(8px);
+  background-color: rgba(15, 15, 20, 0.7) !important; /* Vetro scuro su Desktop */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   max-width: 100%;
   padding: 15px 30px;
   margin: 0px auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
+  position: relative;
 }
 
+/* Hover su Desktop per renderlo più solido */
 .header:hover {
-  background-color: rgba(0, 0, 0, 0.8) !important;
-  border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+  background-color: rgba(10, 10, 10, 0.95) !important;
+  border-bottom: 1px solid $neon-cyan;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
@@ -27,14 +33,15 @@
   overflow: hidden;
 }
 
-/* LOGO CON FONT CORRETTO */
+/* Logo */
 .header .logo-name {
-  font-family: 'Fira Code', monospace !important; /* Font Tecnico */
+  font-family: 'Fira Code', monospace !important;
   font-weight: 700;
   color: #ffffff !important;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   letter-spacing: -1px;
-  text-shadow: 0 0 10px rgba(0, 243, 255, 0.6); 
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
 }
 
 .header .logo-name::before {
@@ -42,33 +49,124 @@
   color: $neon-cyan;
 }
 
+/* Menu Links */
 .header li a {
   display: block;
-  padding: 15px 20px;
-  color: #ffffff;
+  padding: 10px 20px;
+  color: #e0e0e0;
   text-decoration: none;
   font-family: 'Fira Code', monospace;
   font-size: 0.9rem;
   transition: all 0.2s ease;
+  border-radius: 5px;
 }
 
 .header li a:hover {
   color: $neon-cyan !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
   text-shadow: 0 0 8px $neon-cyan;
-  background-color: transparent !important;
+}
+
+/* --- MENU MOBILE (Hamburger) --- */
+
+/* Icona Menu */
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
 }
 
 .header .menu-icon .navicon {
   background: #ffffff;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 18px;
 }
+
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
   background: #ffffff;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
 }
 
-@media (min-width: 48em) {
+.header .menu-icon .navicon:before { top: 5px; }
+.header .menu-icon .navicon:after { top: -5px; }
+
+/* Logica Apertura Menu */
+.header .menu-btn { display: none; }
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Quando il menu è aperto */
+.header .menu-btn:checked ~ .menu {
+  max-height: 400px; /* Abbastanza alto per contenere i link */
+  background-color: #050505; /* Sfondo menu aperto */
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon { background: transparent !important; }
+.header .menu-btn:checked ~ .menu-icon .navicon:before { transform: rotate(-45deg); top: 0; }
+.header .menu-btn:checked ~ .menu-icon .navicon:after { transform: rotate(45deg); top: 0; }
+
+/* --- MEDIA QUERIES (FIX MOBILE) --- */
+
+@media (min-width: 769px) {
   .header li { float: left; }
-  .header { display: flex; align-items: center; justify-content: space-between; }
-  .header .menu { max-height: none; }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header .menu {
+    max-height: none;
+    width: auto;
+    background: transparent !important; /* Trasparente su desktop */
+  }
   .header .menu-icon { display: none; }
+}
+
+@media (max-width: 768px) {
+  /* FIX VISIBILITÀ MOBILE */
+  .header {
+    /* SFONDO SOLIDO NERO SU MOBILE: Risolve la sovrapposizione */
+    background-color: #000000 !important; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 20px; /* Più compatto */
+  }
+
+  .header .logo-name {
+    font-size: 1.3rem; /* Logo leggermente più piccolo */
+    margin-top: 15px; /* Allineamento verticale col menu */
+  }
+
+  .header .menu-icon {
+    padding: 20px 10px; /* Aggiusta posizione icona */
+  }
+
+  /* Stile Link nel menu a tendina */
+  .header li a {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+  }
+  
+  .header li a:hover {
+    background-color: #111 !important;
+  }
 }

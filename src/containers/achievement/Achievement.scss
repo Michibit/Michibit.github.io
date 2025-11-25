@@ -1,34 +1,66 @@
 @import "../../_globalColor";
 
-.achievement-heading {
-  font-size: 56px;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0px;
+.achievement-main-div {
+  padding: 50px 20px;
+  max-width: 1300px;
+  margin: 0 auto;
 }
-.achievement-subtitle {
-  text-transform: uppercase;
-  margin: 0px;
+
+.achievement-header {
+  text-align: center;
   margin-bottom: 50px;
 }
-.subTitle {
+
+.achievement-heading {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: $titleColor;
+}
+
+.achievement-subtitle {
+  font-size: 1.1rem;
+  font-family: 'Fira Code', monospace;
   color: $subTitle;
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .achievement-heading {
-    font-size: 40px;
-  }
+/* --- GRIGLIA CERTIFICAZIONI --- */
+.achievement-cards-div {
+  display: grid;
+  /* Layout Desktop: Colonne flessibili */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px; /* Spazio standard tra le card */
+  width: 100%;
+  justify-content: center;
 }
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .achievement-main-div {
+    padding: 30px 15px; /* Meno padding laterale */
+  }
+
   .achievement-heading {
-    font-size: 30px;
+    font-size: 32px;
     text-align: center;
   }
+
   .achievement-subtitle {
-    font-size: 16px;
-    line-height: normal;
     text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  .achievement-cards-div {
+    /* Su mobile una colonna unica */
+    grid-template-columns: 1fr;
+    /* Aumentiamo lo spazio verticale tra le card su mobile */
+    gap: 40px; 
+    padding-bottom: 20px;
+  }
+  
+  /* Regola specifica per le card su mobile */
+  .achievement-card-modern {
+    margin-bottom: 20px; /* Margine extra di sicurezza */
   }
 }

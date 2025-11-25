@@ -1,8 +1,8 @@
 @import "../../_globalColor";
 
 .education-card-compact {
-  background: rgba(15, 15, 18, 0.75); /* Stesso sfondo scuro */
-  backdrop-filter: blur(12px);
+  background: rgba(20, 20, 23, 0.75);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 25px;
@@ -12,20 +12,20 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 
   &:hover {
-    border-color: $neon-purple; /* Viola per distinguere Educazione da Lavoro */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     transform: translateY(-3px);
+    border-color: $neon-purple;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     
     .vertical-line {
       background: $neon-purple;
-      box-shadow: 0 0 10px $neon-purple;
+      box-shadow: 0 0 8px $neon-purple;
     }
   }
 }
 
-/* PARTE SINISTRA */
 .education-card-left {
   display: flex;
   flex-direction: column;
@@ -57,24 +57,22 @@
   flex-grow: 1;
   background: rgba(255,255,255,0.1);
   margin-top: 10px;
-  transition: all 0.3s ease;
   border-radius: 2px;
+  transition: all 0.3s;
 }
 
-/* PARTE DESTRA */
 .education-card-right {
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-width: 0;
 }
 
-.education-header {
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .school-name {
@@ -89,22 +87,20 @@
   font-size: 1rem;
   color: $neon-purple;
   font-family: 'Montserrat', sans-serif;
-  margin-top: 5px;
   font-weight: 600;
+  margin-top: 4px;
 }
 
-.education-date-tag {
+.date-badge {
   font-size: 0.85rem;
   color: #aaa;
   font-family: 'Fira Code', monospace;
   background: rgba(255,255,255,0.05);
   padding: 4px 10px;
   border-radius: 4px;
-  margin-left: 10px;
   white-space: nowrap;
 }
 
-/* LISTA PULITA */
 .education-bullets {
   padding: 0;
   margin: 0;
@@ -113,35 +109,49 @@
 
 .bullet-item {
   list-style: none !important;
-  position: relative;
   padding-left: 20px;
+  position: relative;
   color: #ccc;
-  margin-bottom: 6px;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
 }
 
-/* Spunta Viola invece di puntino */
 .bullet-item::before {
-  content: "✓";
+  content: "✓" !important;
   position: absolute;
   left: 0;
-  top: 0;
   color: $neon-purple;
   font-weight: bold;
   font-size: 1rem;
 }
 
+/* --- MOBILE FIX --- */
 @media (max-width: 768px) {
   .education-card-compact {
     flex-direction: column;
+    padding: 20px;
   }
   .education-card-left {
     flex-direction: row;
     margin-bottom: 15px;
-    align-items: center;
+    margin-right: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 15px;
   }
   .vertical-line { display: none; }
-  .education-header { flex-direction: column; }
-  .education-date-tag { margin-left: 0; margin-top: 8px; }
+  
+  .logo-wrapper {
+    width: 50px; height: 50px; margin-right: 15px;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .date-badge {
+    margin-left: 0;
+    margin-top: 5px;
+  }
 }

@@ -4,9 +4,9 @@ import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; 
 
 const splashScreen = {
-  enabled: true,
+  enabled: true, 
   animation: splashAnimation,
-  duration: 2000 
+  duration: 5500 // Aumenta questo valore (era 2000) per vedere tutta la sequenza di login!
 };
 
 const illustration = {

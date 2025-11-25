@@ -6,14 +6,12 @@
   margin: 0 auto;
   max-width: 1300px;
   align-items: flex-start;
-  margin-top: 2rem;
 }
 
 .skills-image-div {
   width: 45%;
   margin-right: 60px;
   margin-top: 20px;
-  /* Glow Ciano dietro l'immagine */
   filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.15));
 }
 
@@ -32,24 +30,24 @@
   font-size: 3.5rem;
   font-weight: 800;
   color: $titleColor;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   letter-spacing: -1px;
+  line-height: 1.2;
 }
 
 .skills-text-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-family: 'Fira Code', monospace;
   color: $subTitle;
   margin-bottom: 40px;
   line-height: 1.6;
 }
 
-/* Spazio tra la griglia icone e la griglia testo */
 .software-skills-main-div {
   margin-bottom: 60px; 
 }
 
-/* Griglia Testuale (Competenze descrittive) */
+/* Griglia Testuale */
 .skills-cards-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -58,7 +56,6 @@
 }
 
 .skill-tech-card {
-  /* Card solida e pulita */
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
@@ -66,8 +63,6 @@
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
-  
-  /* Linea decorativa a sinistra */
   border-left: 3px solid $neon-cyan;
 
   &:hover {
@@ -83,21 +78,49 @@
   font-size: 1rem;
   color: #e0e0e0;
   font-weight: 500;
+  line-height: 1.4;
 }
 
+/* --- MOBILE FIXES (Responsive Totale) --- */
 @media (max-width: 1024px) {
   .skills-main-div {
     flex-direction: column;
+    padding: 30px 15px; /* Meno padding laterale */
   }
+  
   .skills-image-div {
     width: 100%;
     margin-right: 0;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
   }
+  
+  .skills-image-div img {
+    max-width: 80%; /* Immagine più piccola su tablet */
+  }
+
   .skills-text-div {
     width: 100%;
   }
+  
   .skills-cards-container {
-    grid-template-columns: 1fr; /* Una colonna su mobile */
+    grid-template-columns: 1fr; /* Una sola colonna per le card */
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-heading {
+    font-size: 2.5rem; /* Titolo più piccolo */
+    text-align: center;
+  }
+  
+  .skills-text-subtitle {
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .skills-image-div img {
+    max-width: 100%; /* Immagine full width su mobile */
   }
 }
