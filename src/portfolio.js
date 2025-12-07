@@ -19,14 +19,14 @@ const greeting = {
   subTitle: emoji(
     "DevOps Engineer & System Administrator. Architetto infrastrutture resilienti, automatizzo il deployment e gestisco sistemi mission-critical."
   ),
-  resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+  resumeLink: "https://drive.google.com/file/d/1tDaP7B9hvVfZunXtJ5-yLHw9IK_F2iXe/view?usp=sharing",
   displayGreeting: true 
 };
 
 const socialMediaLinks = {
   github: "https://github.com/Michibit",
   linkedin: "https://www.linkedin.com/in/michele-menzione-534580268/",
-  gmail: "menzione.m@gmail.com",
+  gmail: "mmenzione4@gmail.com",
   display: true 
 };
 
