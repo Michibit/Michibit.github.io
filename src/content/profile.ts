@@ -91,7 +91,7 @@ export const experience: ExperienceItem[] = [
     // NOTE: the Europass CV lists this role as still current alongside the
     // DigitalPlatforms entry. Set to "2026-01" to close the role, or leave null
     // if the engagement genuinely runs in parallel.
-    end: null,
+    end: "2025-12",
     location: "Napoli (NA), Italia",
     summary: {
       en: "Hardening a hybrid Linux/Windows estate and replacing manual operations with Ansible and Bash automation.",
