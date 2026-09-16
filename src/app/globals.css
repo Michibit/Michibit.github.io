@@ -1,0 +1,430 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   DESIGN TOKENS
+   Tailwind v4 reads these from @theme and generates utilities automatically:
+   --color-void  ->  bg-void / text-void / border-void
+   --text-mega   ->  text-mega
+   ========================================================================== */
+
+@theme {
+  /* ---- Surfaces: a dark, low-chroma canvas so the accent does the talking - */
+  --color-void: #07080a;
+  --color-ink: #0c0e11;
+  --color-slate: #14171c;
+  --color-line: #23272d;
+  --color-line-soft: #1a1d22;
+
+  /* ---- Text ------------------------------------------------------------- */
+  --color-chalk: #f3f2ee;
+  --color-mute: #797e86;
+  --color-faint: #4a4e55;
+
+  /* ---- Accents -----------------------------------------------------------
+     `accent` is the single primary signal colour. `signal` is the secondary
+     used for data-flow and secondary states, so charts and pipelines can encode
+     two things at once without introducing a third brand colour. */
+  --color-accent: #d7ff3e;
+  --color-accent-soft: #b6dd2a;
+  --color-signal: #38bdf8;
+
+  /* ---- Semantic (used by status chips) ------------------------------------ */
+  --color-live: #4ade80;
+
+  /* ---- Glow: drives how "neon" the whole interface reads ------------------
+     Both the palette directions below change these two numbers, which is what
+     separates a cyberpunk terminal from a restrained cloud-native product —
+     without touching a single component. */
+  --glow-blur: 34px;
+  --glow-alpha: 40%;
+  --glow-border: 30%;
+
+  /* ---- Typography -------------------------------------------------------- */
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+
+  /* ---- Fluid type scale --------------------------------------------------
+     Every size is clamp()-based, so the layout is genuinely responsive
+     instead of switching between breakpoint snapshots. */
+  --text-mega: clamp(3.25rem, 13.5vw, 15.5rem);
+  --text-mega--line-height: 0.82;
+  --text-mega--letter-spacing: -0.045em;
+
+  --text-giant: clamp(2.5rem, 8vw, 8.5rem);
+  --text-giant--line-height: 0.9;
+  --text-giant--letter-spacing: -0.035em;
+
+  --text-huge: clamp(1.9rem, 4.6vw, 4.2rem);
+  --text-huge--line-height: 1.02;
+  --text-huge--letter-spacing: -0.025em;
+
+  --text-lead: clamp(1.05rem, 1.5vw, 1.45rem);
+  --text-lead--line-height: 1.55;
+  --text-lead--letter-spacing: -0.01em;
+
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1.1;
+  --text-label--letter-spacing: 0.14em;
+
+  /* ---- Motion ------------------------------------------------------------ */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+
+  /* ---- Layout ------------------------------------------------------------ */
+  --spacing-gutter: clamp(1.25rem, 4vw, 4.5rem);
+  --radius-card: 1.25rem;
+}
+
+/* ==========================================================================
+   PALETTE DIRECTIONS
+   --------------------------------------------------------------------------
+   Two complete art directions, expressed purely as token overrides. Because
+   every Tailwind utility compiles to `var(--color-*)`, redefining the custom
+   properties on a subtree re-skins every component inside it — no duplicate
+   classes, no variant props threaded through the component tree.
+
+   The style tile at /style-tile toggles `data-palette` to compare them live.
+   ========================================================================== */
+
+/* ---- A · Neon Terminal ---------------------------------------------------
+   Near-black with a green cast, high glow, monospace-dominant. Reads as a
+   terminal session: saturated signal colour, visible bloom, thin phosphor
+   lines. Loud on purpose. */
+[data-palette="terminal"] {
+  --color-void: #04070a;
+  --color-ink: #060b10;
+  --color-slate: #0b1319;
+  --color-line: #16323a;
+  --color-line-soft: #0e1e24;
+
+  --color-chalk: #d9f7ea;
+  --color-mute: #5f8479;
+  --color-faint: #33504a;
+
+  --color-accent: #00ff9c;
+  --color-accent-soft: #00c97b;
+  --color-signal: #35e0ff;
+  --color-live: #00ff9c;
+
+  --glow-blur: 46px;
+  --glow-alpha: 85%;
+  --glow-border: 55%;
+}
+
+/* ---- B · Cloud-native ----------------------------------------------------
+   Neutral near-black, a single electric blue, restrained glow. Reads as a
+   product surface: generous whitespace, hairline borders, colour used as
+   information rather than decoration. Quiet on purpose. */
+[data-palette="cloud"] {
+  --color-void: #08090b;
+  --color-ink: #0d0f12;
+  --color-slate: #15181d;
+  --color-line: #262a30;
+  --color-line-soft: #1a1e23;
+
+  --color-chalk: #f7f7f6;
+  --color-mute: #8b9098;
+  --color-faint: #565b63;
+
+  --color-accent: #4f8cff;
+  --color-accent-soft: #3a6fd8;
+  --color-signal: #a78bfa;
+  --color-live: #35d07f;
+
+  --glow-blur: 30px;
+  --glow-alpha: 38%;
+  --glow-border: 28%;
+}
+
+/* ---- C · Hybrid (shipping direction) -------------------------------------
+   The surfaces and type of B with the live layer of A. Structure stays quiet
+   and legible — neutral near-black, white text, hairline borders — while
+   everything the visitor can actually touch glows phosphor: buttons, links,
+   the cursor, data flow, metrics.
+
+   That split is the whole idea: the page reads as a premium product surface
+   until you interact with it, at which point it reads as a live terminal. */
+[data-palette="hybrid"] {
+  /* Structure — Direction B */
+  --color-void: #08090b;
+  --color-ink: #0d0f12;
+  --color-slate: #15181d;
+  --color-line: #262a30;
+  --color-line-soft: #1a1e23;
+
+  --color-chalk: #f7f7f6;
+  --color-mute: #8b9098;
+  --color-faint: #565b63;
+
+  /* Live layer — an emerald accent, deliberately held back. A saturated neon
+     reads as a gaming rig; the same hue desaturated reads as instrumentation. */
+  --color-accent: #10b981;
+  --color-accent-soft: #059669;
+  --color-signal: #2dd4bf;
+  --color-live: #10b981;
+
+  --glow-blur: 34px;
+  --glow-alpha: 42%;
+  --glow-border: 32%;
+}
+
+/* ==========================================================================
+   LIGHT THEME
+   --------------------------------------------------------------------------
+   Placed after the palette blocks on purpose: both selectors sit on <html> and
+   have identical specificity, so the later rule wins. Light therefore restyles
+   whichever dark direction is active.
+
+   It is a real palette, not an inversion filter. A phosphor accent on white is
+   unreadable and a bloom reads as a smudge, so light gets its own decisions:
+   warm off-white surfaces, near-black text, a deep green accent that clears
+   4.5:1 on white, and glow dialled right down to a hairline ring. The structure
+   of the design — quiet surfaces, one live accent — is unchanged, which is what
+   the token architecture is for.
+
+   NOTE ON NAMES: `--color-void` is always the page canvas and `--color-chalk`
+   is always the primary text. In light mode they hold inverted *values*, which
+   is the point: components ask for roles, never for colours.
+   ========================================================================== */
+
+[data-theme="light"] {
+  --color-void: #fbfaf8;
+  --color-ink: #ffffff;
+  --color-slate: #f0eeea;
+  --color-line: #e3e0da;
+  --color-line-soft: #edeae5;
+
+  --color-chalk: #15171b;
+  --color-mute: #5b6068;
+  --color-faint: #8b9098;
+
+  --color-accent: #047857;
+  --color-accent-soft: #065f46;
+  --color-signal: #0f766e;
+  --color-live: #047857;
+
+  /* A glow on paper is a smudge — keep it as a hairline and let borders do
+     the work instead. */
+  --glow-blur: 22px;
+  --glow-alpha: 22%;
+  --glow-border: 38%;
+
+  /* Decorative washes are far too strong on a light canvas. */
+  --decor-opacity: 0.5;
+  --grain-opacity: 0.02;
+}
+
+/* Dark is the shipping default, so the decorative values live on :root. */
+:root {
+  --decor-opacity: 1;
+  --grain-opacity: 0.035;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  * {
+    /* Consistent, subtle borders; Tailwind's border-* utilities inherit this. */
+    border-color: var(--color-line);
+  }
+
+  html {
+    background-color: var(--color-void);
+    color: var(--color-chalk);
+    font-family: var(--font-body);
+    /* Kill the iOS/Windows double-tap zoom delay on interactive elements. */
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    /* Prevent layout shift when Lenis takes over the scrollbar. */
+    overflow-x: clip;
+    min-height: 100svh;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Display type gets optical tracking so huge headings never look loose. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-void);
+  }
+
+  /* A visible, on-brand focus ring for keyboard users only. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* The native scrollbar fights Lenis' smooth scroll on Windows. */
+  html {
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   LENIS — required stylesheet for smooth scrolling
+   https://github.com/darkroomengineering/lenis
+   ========================================================================== */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Applied while the preloader is open: hard-stops scrolling without the
+   layout jump that overflow:hidden on <body> would cause. */
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+/* Full-bleed section that respects a max content width. */
+@utility shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 96rem;
+  padding-inline: var(--spacing-gutter);
+}
+
+/* Monospace eyebrow label — the "engineer" voice of the site. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--text-label--letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-mute);
+}
+
+/* Hides the phantom gap the descender of huge display glyphs leaves behind. */
+@utility optical-trim {
+  margin-block-end: -0.14em;
+}
+
+/* Accent bloom. Intensity is driven entirely by the --glow-* tokens, which the
+   palette directions override — so the same class is a phosphor glow in the
+   terminal direction and a soft product highlight in the cloud-native one. */
+@utility glow-accent {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-accent) var(--glow-border), transparent),
+    0 0 var(--glow-blur) -12px
+      color-mix(in oklab, var(--color-accent) var(--glow-alpha), transparent);
+}
+
+/* Terminal-style phosphor scanlines, used behind the boot scene. */
+@utility scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--color-accent) 6%, transparent) 0px,
+    color-mix(in oklab, var(--color-accent) 6%, transparent) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Engineering blueprint grid — the substrate of the node network. */
+@utility blueprint-grid {
+  background-image:
+    linear-gradient(to right, var(--color-line-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line-soft) 1px, transparent 1px);
+  background-size: var(--grid-size, 3.5rem) var(--grid-size, 3.5rem);
+}
+
+/* ==========================================================================
+   ANIMATION PRIMITIVES
+   ========================================================================== */
+
+/* Marquee: two identical tracks translated by exactly -50%, so the loop is
+   seamless with no JS involvement. */
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-x var(--marquee-duration, 32s) linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-x var(--marquee-duration, 32s) linear infinite reverse;
+  will-change: transform;
+}
+
+.marquee-host:hover .animate-marquee,
+.marquee-host:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
+/* Slow ambient drift used behind the hero to give the void some life. */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -3%, 0) scale(1.08);
+  }
+}
+
+.animate-drift {
+  animation: drift 22s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY — global reduced-motion kill switch
+   GSAP timelines are gated in JS as well; this catches CSS-only motion.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
